@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Oyesanmi Bolaji, identity and systems engineer specializing in ADFS, Active Directory and Microsoft Entra ID.">
+<title>Oyesanmi Bolaji</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+html{color-scheme:light}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+:root{
+  --bg:#F6F7F9; --surface:#FFFFFF; --ink:#141820; --muted:#5A6371; --rule:#DDE1E8;
+  --accent:#2350A8; --accent-soft:#E6ECF8; --key:#7A4FB0; --str:#1E7A55;
+  --sans:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#0E1116; --surface:#151A21; --ink:#E6E9EE; --muted:#96A0AE; --rule:#252C36;
+    --accent:#8EAEF0; --accent-soft:#1A2436; --key:#C3A4F0; --str:#7CCFA6;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#0E1116; --surface:#151A21; --ink:#E6E9EE; --muted:#96A0AE; --rule:#252C36;
+  --accent:#8EAEF0; --accent-soft:#1A2436; --key:#C3A4F0; --str:#7CCFA6;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding-inline:24px;padding-block:0 72px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+h1,h2,h3{text-wrap:balance;margin:0;font-weight:600;letter-spacing:-.01em}
+p{margin:0}
+
+nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:28px;border-bottom:1px solid var(--rule);flex-wrap:wrap}
+.mark{font-family:var(--mono);font-size:13px;color:var(--muted)}
+.mark b{color:var(--ink);font-weight:500}
+nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-size:14px}
+nav a:hover{color:var(--ink)}
+
+.hero{display:grid;grid-template-columns:1fr;gap:48px;align-items:center;padding-block:72px 64px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+.hero h1{font-size:clamp(40px,6vw,60px);line-height:1.02;font-weight:700;letter-spacing:-.025em}
+.hero .role{font-size:21px;color:var(--muted);margin-top:14px;line-height:1.4}
+.hero .lede{margin-top:24px;max-width:52ch}
+.cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:6px;font-size:15px;font-weight:500;text-decoration:none;border:1px solid var(--rule);color:var(--ink);background:var(--surface)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn:hover{border-color:var(--accent)}
+
+
+section{padding-block:56px;border-top:1px solid var(--rule)}
+.sec-head{display:grid;grid-template-columns:200px 1fr;gap:32px}
+.sec-head h2{font-size:14px;font-family:var(--mono);font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;padding-top:4px}
+
+.focus{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.focus h3{font-size:17px;margin-bottom:8px}
+.focus p{color:var(--muted);font-size:15.5px}
+
+.jobs{display:grid;gap:40px}
+.job header{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline}
+.job h3{font-size:19px}
+.job .org{color:var(--muted);font-size:15.5px;margin-top:2px}
+.job .when{font-family:var(--mono);font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+.job ul{margin:12px 0 0;padding-left:18px;display:grid;gap:6px;max-width:66ch}
+.job li::marker{color:var(--accent)}
+
+.skills{display:grid;gap:22px}
+.skill{display:grid;grid-template-columns:190px 1fr;gap:20px}
+.skill dt{font-weight:600;font-size:15.5px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0}
+.chips span{font-size:13.5px;padding:3px 10px;border:1px solid var(--rule);border-radius:4px;background:var(--surface)}
+
+.certs{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:8px;overflow:hidden}
+.cert{background:var(--surface);padding:16px 18px;display:grid;gap:4px}
+.cert .code{font-family:var(--mono);font-size:13px;color:var(--accent);font-weight:500}
+.cert .name{font-size:15px;line-height:1.35}
+.cert .date{font-family:var(--mono);font-size:12px;color:var(--muted)}
+
+.edu{display:grid;gap:22px}
+.edu h3{font-size:17px}
+.edu p{color:var(--muted);font-size:15.5px}
+
+.contact p{max-width:52ch;margin-bottom:22px}
+.email-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.email{font-family:var(--mono);font-size:clamp(17px,3vw,22px);color:var(--ink);user-select:all;overflow-wrap:anywhere}
+.contact .cta{margin-top:20px}
+button.btn{font-family:inherit;cursor:pointer}
+footer{padding-block:28px 0;border-top:1px solid var(--rule);color:var(--muted);font-size:13px;font-family:var(--mono)}
+
+@media (max-width:760px){
+  body{font-size:16px}
+  .wrap{padding-inline:18px}
+  .hero{grid-template-columns:1fr;gap:36px;padding-block:48px}
+  .sec-head{grid-template-columns:1fr;gap:20px}
+  .focus{grid-template-columns:1fr;gap:22px}
+  .skill{grid-template-columns:1fr;gap:8px}
+  nav ul{gap:16px}
+}
+@media (prefers-reduced-motion:no-preference){ .btn{transition:border-color .15s} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <div class="mark"><b>obolaji</b>@identity</div>
+    <ul>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div>
+      <div class="eyebrow">Identity &amp; Systems Engineer</div>
+      <h1>Oyesanmi Bolaji</h1>
+      <p class="role">Active Directory, ADFS and Microsoft Entra ID for enterprise and MSP environments.</p>
+      <p class="lede">I've spent more than 10 years keeping sign-ins working. My focus is hybrid identity, federated single sign-on and claims-based authentication, and I use PowerShell to automate the repetitive parts.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://www.linkedin.com/in/oyesanmi-b-968b5b17a/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn" href="#contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <h2>Focus</h2>
+      <div class="focus">
+        <div>
+          <h3>Federation &amp; SSO</h3>
+          <p>Relying party trusts, claims rules and access control policies for internal and third-party apps on ADFS.</p>
+        </div>
+        <div>
+          <h3>Hybrid identity</h3>
+          <p>Entra ID administration, sync troubleshooting and migrations from on-premises Active Directory.</p>
+        </div>
+        <div>
+          <h3>Certificates &amp; MFA</h3>
+          <p>Token-signing rollover, SSL renewals and MFA integration with ADFS, DUO and Okta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head">
+      <h2>Experience</h2>
+      <div class="jobs">
+        <article class="job">
+          <header>
+            <div><h3>Engineer I, Active Directory</h3><div class="org">Lunavi · Cheyenne, WY</div></div>
+            <span class="when">May 2024 – Jun 2026</span>
+          </header>
+          <ul>
+            <li>Deployed and managed Azure Virtual Desktop, storage accounts and disaster recovery for MSP client environments.</li>
+            <li>Configured relying party trusts, claims-based authentication and access control policies for internal and third-party applications.</li>
+            <li>Integrated MFA with ADFS to strengthen client security posture.</li>
+            <li>Ran backup and recovery operations with AWX automation for business-critical Microsoft environments.</li>
+            <li>Remediated vulnerabilities and patched on-premises and Azure servers to stay compliant.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <header>
+            <div><h3>Desktop Systems Engineer</h3><div class="org">RamQuest · Plano, TX</div></div>
+            <span class="when">Feb 2023 – Jan 2024</span>
+          </header>
+          <ul>
+            <li>Served as Microsoft Entra ID Global Administrator: identities, enterprise apps, role assignments, authentication controls and access policies during hybrid identity migrations.</li>
+            <li>Troubleshot federation, certificate expiration, trust and sync issues using PowerShell and event logs.</li>
+            <li>Ran Okta administration: SSO integrations, group-based assignments, access reviews and authentication support.</li>
+            <li>Identified and remediated risks across Microsoft environments using Splunk.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <header>
+            <div><h3>Support Engineer</h3><div class="org">NTT Managed Services · Southfield, MI</div></div>
+            <span class="when">Mar 2022 – Feb 2023</span>
+          </header>
+          <ul>
+            <li>Administered Windows Server, Active Directory, Microsoft 365 and Exchange across on-premises and cloud.</li>
+            <li>Handled infrastructure alerts in Zenoss and LogicMonitor, and managed Linux server access.</li>
+            <li>Ran JAMF for macOS: policy creation and application patching in mixed Microsoft and Apple fleets.</li>
+            <li>Wrote knowledge base articles for Microsoft 365 and Windows administration.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <header>
+            <div><h3>Support Analyst</h3><div class="org">NTT Managed Services · Southfield, MI</div></div>
+            <span class="when">Jan 2021 – Feb 2022</span>
+          </header>
+          <ul>
+            <li>Managed Microsoft 365 licensing, user and shared mailboxes, and permissions.</li>
+            <li>Administered DUO MFA across Microsoft accounts.</li>
+            <li>Performed server maintenance and resource management in VMware vSphere.</li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <header>
+            <div><h3>Technical Support Representative</h3><div class="org">Secure-24 · Southfield, MI</div></div>
+            <span class="when">Apr 2019 – Dec 2020</span>
+          </header>
+          <ul>
+            <li>Active Directory specialist: users, groups, OUs, service accounts, lockouts and access.</li>
+            <li>Supported ADFS federated SSO, troubleshooting sign-in failures, claims, relying party trusts and certificates within SLA.</li>
+            <li>Supported domain controllers, DNS, replication and Group Policy processing.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head">
+      <h2>Skills</h2>
+      <dl class="skills">
+        <div class="skill"><dt>Identity &amp; federation</dt><dd class="chips"><span>AD DS</span><span>ADFS</span><span>Microsoft Entra ID</span><span>Hybrid identity</span><span>Federated SSO</span><span>Claims-based auth</span><span>Relying party trusts</span><span>Conditional Access</span><span>MFA</span></dd></div>
+        <div class="skill"><dt>Active Directory</dt><dd class="chips"><span>Group Policy</span><span>OUs &amp; delegation</span><span>Service accounts</span><span>Domain controllers</span><span>DNS</span><span>Replication</span><span>Lockout troubleshooting</span></dd></div>
+        <div class="skill"><dt>ADFS operations</dt><dd class="chips"><span>Web Application Proxy</span><span>Token-signing certs</span><span>Certificate rollover</span><span>Event-log analysis</span><span>Incident response</span></dd></div>
+        <div class="skill"><dt>Automation</dt><dd class="chips"><span>PowerShell</span><span>AD &amp; ADFS cmdlets</span><span>Python</span><span>Shell scripting</span><span>AWX</span></dd></div>
+        <div class="skill"><dt>Cloud &amp; tools</dt><dd class="chips"><span>Azure</span><span>Microsoft 365</span><span>Intune</span><span>Azure Virtual Desktop</span><span>Exchange</span><span>Okta</span><span>DUO</span><span>VMware vSphere</span><span>Splunk</span><span>Sophos Central</span><span>ServiceNow</span><span>Jira</span></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="sec-head">
+      <h2>Certifications</h2>
+      <div class="certs">
+        <div class="cert featured"><span class="code">AZ-104</span><span class="name">Azure Administrator Associate</span><span class="date">Jan 2024</span></div>
+        <div class="cert featured"><span class="code">SC-300</span><span class="name">Identity and Access Administrator</span><span class="date">Jan 2024</span></div>
+        <div class="cert featured"><span class="code">MS-102</span><span class="name">Microsoft 365 Administrator Expert</span><span class="date">Jan 2024</span></div>
+        <div class="cert"><span class="code">Jamf</span><span class="name">Jamf Pro 10 Certified Associate</span><span class="date">Oct 2022</span></div>
+        <div class="cert"><span class="code">MS-900</span><span class="name">Microsoft 365 Fundamentals</span><span class="date">Sep 2022</span></div>
+        <div class="cert"><span class="code">SC-900</span><span class="name">Security, Compliance &amp; Identity Fundamentals</span><span class="date">Aug 2022</span></div>
+        <div class="cert"><span class="code">Dynamics 365</span><span class="name">Dynamics 365 Fundamentals</span><span class="date">May 2021</span></div>
+        <div class="cert"><span class="code">AZ-900</span><span class="name">Azure Fundamentals</span><span class="date">Feb 2021</span></div>
+        <div class="cert"><span class="code">98-366</span><span class="name">MTA Networking Fundamentals</span><span class="date">Feb 2021</span></div>
+        <div class="cert"><span class="code">98-365</span><span class="name">MTA Windows Server Administration</span><span class="date">Jan 2021</span></div>
+        <div class="cert"><span class="code">98-349</span><span class="name">MTA Windows OS Fundamentals</span><span class="date">Sep 2020</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Education</h2>
+      <div class="edu">
+        <div>
+          <h3>B.S. Computer Science</h3>
+          <p>Fort Hays State University · Senior, graduating May 2027</p>
+        </div>
+        <div>
+          <h3>Associate Degree, Computer Information Systems</h3>
+          <p>Wayne County Community College District, Detroit · GPA 3.8, Dean's List, Phi Theta Kappa</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="sec-head">
+      <h2>Contact</h2>
+      <div>
+        <p>I'm open to conversations about identity engineering, ADFS-to-Entra migrations and Microsoft infrastructure work. Email me or reach out on LinkedIn.</p>
+        <div class="email-row">
+          <span class="email" id="email">borhlargee@gmail.com</span>
+          <button class="btn" type="button" id="copy-email">Copy email</button>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="mailto:borhlargee@gmail.com">Send email</a>
+          <a class="btn" href="https://www.linkedin.com/in/oyesanmi-b-968b5b17a/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>© 2026 Oyesanmi Bolaji</footer>
+</div>
+<script>
+document.getElementById('copy-email').addEventListener('click', function(){
+  var btn = this, text = document.getElementById('email').textContent;
+  var done = function(){ btn.textContent = 'Copied'; setTimeout(function(){ btn.textContent = 'Copy email'; }, 1800); };
+  var fallback = function(){
+    var r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    btn.textContent = 'Selected, press Ctrl+C';
+  };
+  try { navigator.clipboard.writeText(text).then(done, fallback); } catch(e){ fallback(); }
+});
+</script>
+</body>
+</html>
